@@ -9,56 +9,42 @@
     <title>Интернет-магазин</title>
 </head>
 <body>
-<div class="container-fluid app-shell">
-    <jsp:include page="/views/header.jsp" />
+<div class="container-fluid p-0 min-vh-100 d-flex flex-column">
+    <jsp:include page="/views/header.jsp"/>
 
-    <main class="container content-wrapper">
-        <section class="hero-card text-center">
-            <p class="section-label">Вариант 26</p>
-            <h1>Информационная подсистема интернет-магазина</h1>
-            <p class="lead">
-                Поддержание в актуальном состоянии информации о продуктах,
-                категориях, заказах и составе заказов.
-            </p>
-        </section>
-
-        <section class="list-group text-center system-functions">
+    <main class="container flex-grow-1 py-5">
+        <section class="text-center mb-4">
             <h2>Функции системы</h2>
-            <div class="row g-3 mt-3">
-                <div class="col-md-6 col-lg-3">
-                    <a class="list-group-item list-group-item-primary function-link" href="products.jsp">
-                        <span class="function-icon">🛒</span>
-                        <span>Продукты</span>
-                        <small>Product</small>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a class="list-group-item list-group-item-info function-link" href="categories.jsp">
-                        <span class="function-icon">📂</span>
-                        <span>Категории</span>
-                        <small>Category</small>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a class="list-group-item list-group-item-warning function-link" href="orders.jsp">
-                        <span class="function-icon">📦</span>
-                        <span>Заказы</span>
-                        <small>Order</small>
-                    </a>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <a class="list-group-item list-group-item-success function-link" href="order-details.jsp">
-                        <span class="function-icon">🧾</span>
-                        <span>Товары в заказе</span>
-                        <small>OrderDetails</small>
-                    </a>
-                </div>
-            </div>
+            <p class="text-muted">Информационная подсистема интернет-магазина</p>
         </section>
+
+        <div class="row g-3 justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <a class="function-card list-group-item list-group-item-primary" href="ProductServlet">
+                    Продукты
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <a class="function-card list-group-item list-group-item-info" href="CategoryServlet">
+                    Категории
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <a class="function-card list-group-item list-group-item-warning" href="OrderServlet">
+                    Заказы
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <a class="function-card list-group-item list-group-item-success" href="OrderDetailsServlet">
+                    Товары в заказе
+                </a>
+            </div>
+        </div>
     </main>
 
-    <jsp:include page="/views/footer.jsp" />
+    <jsp:include page="/views/footer.jsp"/>
 </div>
+
 <script src="js/jquery-3.6.4.js"></script>
 <script defer src="js/bootstrap.bundle.min.js"></script>
 </body>
