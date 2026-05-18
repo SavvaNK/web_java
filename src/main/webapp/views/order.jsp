@@ -42,8 +42,8 @@
                             <td>${order.status}</td>
                             <td>${order.totalOrderAmount}</td>
                             <td>${order.orderDetails.productName}</td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/editorder?id=${order.id}' />" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/deleteorder?id=${order.id}' />" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18" onclick="return confirm('Удалить заказ с кодом: ${order.id}?')"></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

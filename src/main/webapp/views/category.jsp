@@ -36,8 +36,8 @@
                             <td>${category.id}</td>
                             <td>${category.categoryName}</td>
                             <td>${category.description}</td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/editcategory?id=${category.id}' />" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/deletecategory?id=${category.id}' />" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18" onclick="return confirm('Удалить категорию с кодом: ${category.id}?')"></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

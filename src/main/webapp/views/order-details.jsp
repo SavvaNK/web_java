@@ -36,8 +36,8 @@
                             <td>${detail.id}</td>
                             <td>${detail.productName}</td>
                             <td>${detail.count}</td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
-                            <td width="20"><a href="#" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/editorderdetails?id=${detail.id}' />" role="button" class="btn btn-outline-primary"><img alt="Редактировать" src="images/icon-edit.svg" width="18"></a></td>
+                            <td width="20"><a href="<c:url value='/deleteorderdetails?id=${detail.id}' />" role="button" class="btn btn-outline-primary"><img alt="Удалить" src="images/icon-delete.svg" width="18" onclick="return confirm('Удалить товар в заказе с кодом: ${detail.id}?')"></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
