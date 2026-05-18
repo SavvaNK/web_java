@@ -1,23 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
-<%@ page import="domain.Category"%>
-<%@ page import="domain.Product"%>
-<%@ page import="java.math.BigDecimal"%>
-<%
-Category c1 = new Category(1L, "Электроника", "Смартфоны, ноутбуки и аксессуары");
-Category c2 = new Category(2L, "Бытовая техника", "Техника для дома и кухни");
-Category c3 = new Category(3L, "Книги", "Печатные и электронные книги");
-Category c4 = new Category(4L, "Одежда", "Повседневная одежда и обувь");
-Category[] categories = new Category[]{c1, c2, c3, c4};
-pageContext.setAttribute("categories", categories);
-
-Product p1 = new Product(1L, "Ноутбук Lenovo IdeaPad", "Ноутбук для учебы и работы", new BigDecimal("89990.00"), 1L, c1);
-Product p2 = new Product(2L, "Смартфон Samsung Galaxy", "Смартфон с большим экраном", new BigDecimal("54990.00"), 1L, c1);
-Product p3 = new Product(3L, "Кофемашина DeLonghi", "Автоматическая кофемашина", new BigDecimal("39990.00"), 2L, c2);
-Product p4 = new Product(4L, "Java EE. Руководство", "Книга по разработке веб-приложений", new BigDecimal("2490.00"), 3L, c3);
-Product[] products = new Product[]{p1, p2, p3, p4};
-pageContext.setAttribute("products", products);
-%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -32,6 +14,9 @@ pageContext.setAttribute("products", products);
     <jsp:include page="/views/header.jsp" />
 
     <main class="container-fluid flex-grow-1 py-4">
+        <c:if test="${not empty errorMessage}">
+            <div class="alert alert-danger" role="alert">${errorMessage}</div>
+        </c:if>
         <div class="row justify-content-start g-3">
             <div class="col-lg-8 border bg-light px-4 py-3">
                 <h3>Список продуктов</h3>

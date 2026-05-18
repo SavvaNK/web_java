@@ -1,29 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
-<%@ page import="domain.Category"%>
-<%@ page import="domain.Product"%>
-<%@ page import="domain.OrderDetails"%>
-<%@ page import="domain.Order"%>
-<%@ page import="java.math.BigDecimal"%>
-<%@ page import="java.time.LocalDate"%>
-<%
-Category c1 = new Category(1L, "Электроника", "Смартфоны, ноутбуки и аксессуары");
-Category c2 = new Category(2L, "Бытовая техника", "Техника для дома и кухни");
-Product p1 = new Product(1L, "Ноутбук Lenovo IdeaPad", "Ноутбук для учебы и работы", new BigDecimal("89990.00"), 1L, c1);
-Product p2 = new Product(2L, "Смартфон Samsung Galaxy", "Смартфон с большим экраном", new BigDecimal("54990.00"), 1L, c1);
-Product p3 = new Product(3L, "Кофемашина DeLonghi", "Автоматическая кофемашина", new BigDecimal("39990.00"), 2L, c2);
-OrderDetails od1 = new OrderDetails(1L, 1L, p1, 1);
-OrderDetails od2 = new OrderDetails(2L, 2L, p2, 2);
-OrderDetails od3 = new OrderDetails(3L, 3L, p3, 1);
-OrderDetails[] details = new OrderDetails[]{od1, od2, od3};
-pageContext.setAttribute("details", details);
-
-Order o1 = new Order(1L, "ORD-1001", LocalDate.of(2026, 5, 12), "Новый", new BigDecimal("89990.00"), 1L, od1);
-Order o2 = new Order(2L, "ORD-1002", LocalDate.of(2026, 5, 13), "В обработке", new BigDecimal("109980.00"), 2L, od2);
-Order o3 = new Order(3L, "ORD-1003", LocalDate.of(2026, 5, 14), "Доставлен", new BigDecimal("39990.00"), 3L, od3);
-Order[] orders = new Order[]{o1, o2, o3};
-pageContext.setAttribute("orders", orders);
-%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -38,6 +14,9 @@ pageContext.setAttribute("orders", orders);
     <jsp:include page="/views/header.jsp" />
 
     <main class="container-fluid flex-grow-1 py-4">
+        <c:if test="${not empty errorMessage}">
+            <div class="alert alert-danger" role="alert">${errorMessage}</div>
+        </c:if>
         <div class="row justify-content-start g-3">
             <div class="col-lg-8 border bg-light px-4 py-3">
                 <h3>Список заказов</h3>
