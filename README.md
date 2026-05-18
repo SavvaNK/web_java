@@ -1,6 +1,6 @@
 # internet_store
 
-Лабораторная работа 2. Dynamic Web Project для Tomcat 10 / Jakarta EE Web 5.0.
+Лабораторная работа 4. Dynamic Web Project для Tomcat 10 / Jakarta EE Web 5.0.
 
 Вариант 26: информационная подсистема интернет-магазина.
 

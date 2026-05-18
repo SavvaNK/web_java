@@ -20,22 +20,22 @@
 
         <div class="row g-3 justify-content-center">
             <div class="col-md-6 col-lg-3">
-                <a class="function-card list-group-item list-group-item-primary" href="ProductServlet">
+                <a class="function-card list-group-item list-group-item-primary" href="${pageContext.request.contextPath}/product">
                     Продукты
                 </a>
             </div>
             <div class="col-md-6 col-lg-3">
-                <a class="function-card list-group-item list-group-item-info" href="CategoryServlet">
+                <a class="function-card list-group-item list-group-item-info" href="${pageContext.request.contextPath}/category">
                     Категории
                 </a>
             </div>
             <div class="col-md-6 col-lg-3">
-                <a class="function-card list-group-item list-group-item-warning" href="OrderServlet">
+                <a class="function-card list-group-item list-group-item-warning" href="${pageContext.request.contextPath}/order">
                     Заказы
                 </a>
             </div>
             <div class="col-md-6 col-lg-3">
-                <a class="function-card list-group-item list-group-item-success" href="OrderDetailsServlet">
+                <a class="function-card list-group-item list-group-item-success" href="${pageContext.request.contextPath}/order-details">
                     Товары в заказе
                 </a>
             </div>
