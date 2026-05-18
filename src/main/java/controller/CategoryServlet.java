@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Servlet for category view.
+ * Servlet for category view and category creation.
  */
 @WebServlet("/category")
 public class CategoryServlet extends HttpServlet {
@@ -47,6 +47,32 @@ public class CategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
+        String categoryName = trimParameter(request, "categoryName");
+        String description = trimParameter(request, "description");
+
+        if (categoryName == null || categoryName.isEmpty()) {
+            request.setAttribute("errorMessage", "Введите название категории.");
+            doGet(request, response);
+            return;
+        }
+
+        CategoryDbDAO dao = new CategoryDbDAO();
+        Category category = new Category(categoryName, description);
+        try {
+            Long id = dao.insert(category);
+            System.out.println("Adding category result: " + id);
+        } catch (DAOException e) {
+            request.setAttribute("errorMessage", "Ошибка добавления категории: " + e.getMessage());
+            e.printStackTrace();
+        }
+
         doGet(request, response);
+    }
+
+    private String trimParameter(HttpServletRequest request, String name) {
+        String value = request.getParameter(name);
+        return value == null ? null : value.trim();
     }
 }
